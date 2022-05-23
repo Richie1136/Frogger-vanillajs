@@ -5,8 +5,23 @@ const squares = document.querySelectorAll('.grid div')
 
 let currentIndex = 76
 
-const moveFrog = () => {
+const moveFrog = (e) => {
   console.log("Moved")
+
+  switch (e.key) {
+    case 'ArrowLeft':
+      console.log("Move Left")
+      break
+    case 'ArrowRight':
+      console.log("Move Right")
+      break
+    case 'ArrowUp':
+      console.log("Move Up")
+      break
+    case 'ArrowDown':
+      console.log("Move Down")
+  }
+
   squares[currentIndex].classList.add('frog')
 }
 
