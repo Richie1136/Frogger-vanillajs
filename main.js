@@ -7,12 +7,15 @@ let currentIndex = 76
 const width = 9
 
 const moveFrog = (e) => {
+  squares[currentIndex].classList.remove('frog')
   console.log("Moved")
 
   switch (e.key) {
     case 'ArrowLeft':
       console.log("Move Left")
-      currentIndex -= 1
+      if (currentIndex % width !== 0) {
+        currentIndex -= 1
+      }
       break
     case 'ArrowRight':
       console.log("Move Right")
@@ -26,8 +29,8 @@ const moveFrog = (e) => {
       currentIndex += width
       console.log("Move Down")
   }
-
   squares[currentIndex].classList.add('frog')
+
 }
 
 document.addEventListener('keyup', moveFrog)
