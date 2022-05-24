@@ -4,6 +4,7 @@ const startorpause = document.querySelector('#start-pause-button')
 const squares = document.querySelectorAll('.grid div')
 
 let currentIndex = 76
+const width = 9
 
 const moveFrog = (e) => {
   console.log("Moved")
@@ -11,14 +12,18 @@ const moveFrog = (e) => {
   switch (e.key) {
     case 'ArrowLeft':
       console.log("Move Left")
+      currentIndex -= 1
       break
     case 'ArrowRight':
       console.log("Move Right")
+      currentIndex += 1
       break
     case 'ArrowUp':
       console.log("Move Up")
+      currentIndex -= width
       break
     case 'ArrowDown':
+      currentIndex += width
       console.log("Move Down")
   }
 
