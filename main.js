@@ -19,14 +19,20 @@ const moveFrog = (e) => {
       break
     case 'ArrowRight':
       console.log("Move Right")
-      currentIndex += 1
+      if (currentIndex % width < 8) {
+        currentIndex += 1
+      }
       break
     case 'ArrowUp':
       console.log("Move Up")
-      currentIndex -= width
+      if (currentIndex - width >= 0) {
+        currentIndex -= width
+      }
       break
     case 'ArrowDown':
-      currentIndex += width
+      if (currentIndex + width < width * width) {
+        currentIndex += width
+      }
       console.log("Move Down")
   }
   squares[currentIndex].classList.add('frog')
