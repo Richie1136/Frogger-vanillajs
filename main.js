@@ -4,6 +4,9 @@ const startorpause = document.querySelector('#start-pause-button')
 const squares = document.querySelectorAll('.grid div')
 const logLeft = document.querySelectorAll('.log-left')
 const logRight = document.querySelectorAll('.log-right')
+const carsLeft = document.querySelectorAll('.cars-left')
+const carsRight = document.querySelectorAll('.cars-right')
+
 
 console.log(logLeft)
 
@@ -91,6 +94,57 @@ const moveLogsRight = (logRight) => {
   }
 }
 
+
+const moveCarsLeft = (carsLeft) => {
+  switch (true) {
+    case carsLeft.classList.contains('l1'):
+      carsLeft.classList.remove('l1')
+      carsLeft.classList.add('l2')
+      break
+    case carsLeft.classList.contains('l2'):
+      carsLeft.classList.remove('l2')
+      carsLeft.classList.add('l3')
+      break
+    case carsLeft.classList.contains('l3'):
+      carsLeft.classList.remove('l3')
+      carsLeft.classList.add('l4')
+      break
+    case carsLeft.classList.contains('l4'):
+      carsLeft.classList.remove('l4')
+      carsLeft.classList.add('l5')
+      break
+    case carsLeft.classList.contains('l5'):
+      carsLeft.classList.remove('l5')
+      carsLeft.classList.add('l1')
+      break
+  }
+}
+
+const moveCarsRight = (carsRight) => {
+  switch (true) {
+    case carsRight.classList.contains('l1'):
+      carsRight.classList.remove('l1')
+      carsRight.classList.add('l5')
+      break
+    case carsRight.classList.contains('l2'):
+      carsRight.classList.remove('l2')
+      carsRight.classList.add('l1')
+      break
+    case carsRight.classList.contains('l3'):
+      carsRight.classList.remove('l3')
+      carsRight.classList.add('l2')
+      break
+    case carsRight.classList.contains('l4'):
+      carsRight.classList.remove('l4')
+      carsRight.classList.add('l3')
+      break
+    case carsRight.classList.contains('l5'):
+      carsRight.classList.remove('l5')
+      carsRight.classList.add('l4')
+      break
+  }
+}
+
 const autoMoveLogs = () => {
   logLeft.forEach(log => {
     moveLogsLeft(log)
@@ -100,9 +154,19 @@ const autoMoveLogs = () => {
   });
 }
 
+const autoMoveCars = () => {
+  carsLeft.forEach(car => {
+    moveCarsLeft(car)
+  });
+  carsRight.forEach(car => {
+    moveCarsRight(car)
+  });
+}
+
 setInterval(() => {
   autoMoveLogs()
+  autoMoveCars()
 }, 1000);
 
-autoMoveLogs
+
 
