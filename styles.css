@@ -21,11 +21,6 @@
   background-color: blue;
 }
 
-.cars-left,
-.cars-right {
-  background-color: #cbc3e3;
-}
-
 .frog {
   background-color: green;
 }
@@ -39,4 +34,13 @@
 .l4,
 .l5 {
   background-color: lightblue;
+}
+
+.c1 {
+  background-color: black;
+}
+
+.c2,
+.c3 {
+  background-color: lightgrey;
 }

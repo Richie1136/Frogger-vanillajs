@@ -97,50 +97,34 @@ const moveLogsRight = (logRight) => {
 
 const moveCarsLeft = (carsLeft) => {
   switch (true) {
-    case carsLeft.classList.contains('l1'):
-      carsLeft.classList.remove('l1')
-      carsLeft.classList.add('l2')
+    case carsLeft.classList.contains('c1'):
+      carsLeft.classList.remove('c1')
+      carsLeft.classList.add('c2')
       break
-    case carsLeft.classList.contains('l2'):
-      carsLeft.classList.remove('l2')
-      carsLeft.classList.add('l3')
+    case carsLeft.classList.contains('c2'):
+      carsLeft.classList.remove('c2')
+      carsLeft.classList.add('c3')
       break
-    case carsLeft.classList.contains('l3'):
-      carsLeft.classList.remove('l3')
-      carsLeft.classList.add('l4')
-      break
-    case carsLeft.classList.contains('l4'):
-      carsLeft.classList.remove('l4')
-      carsLeft.classList.add('l5')
-      break
-    case carsLeft.classList.contains('l5'):
-      carsLeft.classList.remove('l5')
-      carsLeft.classList.add('l1')
+    case carsLeft.classList.contains('c3'):
+      carsLeft.classList.remove('c3')
+      carsLeft.classList.add('c1')
       break
   }
 }
 
 const moveCarsRight = (carsRight) => {
   switch (true) {
-    case carsRight.classList.contains('l1'):
-      carsRight.classList.remove('l1')
-      carsRight.classList.add('l5')
+    case carsRight.classList.contains('c1'):
+      carsRight.classList.remove('c1')
+      carsRight.classList.add('c3')
       break
-    case carsRight.classList.contains('l2'):
-      carsRight.classList.remove('l2')
-      carsRight.classList.add('l1')
+    case carsRight.classList.contains('c2'):
+      carsRight.classList.remove('c2')
+      carsRight.classList.add('c1')
       break
-    case carsRight.classList.contains('l3'):
-      carsRight.classList.remove('l3')
-      carsRight.classList.add('l2')
-      break
-    case carsRight.classList.contains('l4'):
-      carsRight.classList.remove('l4')
-      carsRight.classList.add('l3')
-      break
-    case carsRight.classList.contains('l5'):
-      carsRight.classList.remove('l5')
-      carsRight.classList.add('l4')
+    case carsRight.classList.contains('c3'):
+      carsRight.classList.remove('c3')
+      carsRight.classList.add('c2')
       break
   }
 }
