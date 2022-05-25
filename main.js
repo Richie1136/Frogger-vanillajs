@@ -12,19 +12,16 @@ const moveFrog = (e) => {
 
   switch (e.key) {
     case 'ArrowLeft':
-      console.log("Move Left")
       if (currentIndex % width !== 0) {
         currentIndex -= 1
       }
       break
     case 'ArrowRight':
-      console.log("Move Right")
       if (currentIndex % width < 8) {
         currentIndex += 1
       }
       break
     case 'ArrowUp':
-      console.log("Move Up")
       if (currentIndex - width >= 0) {
         currentIndex -= width
       }
@@ -33,7 +30,6 @@ const moveFrog = (e) => {
       if (currentIndex + width < width * width) {
         currentIndex += width
       }
-      console.log("Move Down")
   }
   squares[currentIndex].classList.add('frog')
 
