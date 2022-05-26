@@ -13,6 +13,7 @@ console.log(logLeft)
 let currentIndex = 76
 const width = 9
 let timerId;
+let time = 20;
 
 const moveFrog = (e) => {
   squares[currentIndex].classList.remove('frog')
@@ -131,6 +132,8 @@ const moveCarsRight = (carsRight) => {
 }
 
 const autoMoveLogs = () => {
+  time--
+  timeLeft.innerHTML = time
   logLeft.forEach(log => {
     moveLogsLeft(log)
   });
@@ -138,6 +141,7 @@ const autoMoveLogs = () => {
     moveLogsRight(log)
   });
   lose()
+  win()
 }
 
 const autoMoveCars = () => {
@@ -148,9 +152,14 @@ const autoMoveCars = () => {
     moveCarsRight(car)
   });
   lose()
+  win()
 }
 const lose = () => {
-  if (squares[currentIndex].classList.contains('c1') || squares[currentIndex].classList.contains('l4') || squares[currentIndex].classList.contains('l5')) {
+  if (
+    squares[currentIndex].classList.contains('c1') ||
+    squares[currentIndex].classList.contains('l4') ||
+    squares[currentIndex].classList.contains('l5') ||
+    time <= 0) {
     result.innerHTML = "You Lose"
     clearInterval(timerId)
     squares[currentIndex].classList.remove('frog')
@@ -159,11 +168,14 @@ const lose = () => {
   }
 }
 
-lose()
+const win = () => {
+  if (squares[currentIndex].classList.contains('ending-block')) {
+    result.innerHTML = "You win"
+    clearInterval(timerId)
+  }
+}
 
 timerId = setInterval(() => {
   autoMoveLogs()
   autoMoveCars()
 }, 1000);
-
-
