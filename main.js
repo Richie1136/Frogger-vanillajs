@@ -137,6 +137,7 @@ const autoMoveLogs = () => {
   logRight.forEach(log => {
     moveLogsRight(log)
   });
+  lose()
 }
 
 const autoMoveCars = () => {
@@ -146,12 +147,15 @@ const autoMoveCars = () => {
   carsRight.forEach(car => {
     moveCarsRight(car)
   });
+  lose()
 }
 const lose = () => {
-  if (squares[currentIndex].classList.contains('c1')) {
-    console.log("Gane Over")
+  if (squares[currentIndex].classList.contains('c1') || squares[currentIndex].classList.contains('l4') || squares[currentIndex].classList.contains('l5')) {
     result.innerHTML = "You Lose"
     clearInterval(timerId)
+    squares[currentIndex].classList.remove('frog')
+    document.removeEventListener('keyup', moveFrog)
+
   }
 }
 
