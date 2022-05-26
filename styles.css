@@ -4,8 +4,8 @@
   width: 180px;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  align-content: center;
 }
 
 .grid > div {
@@ -20,11 +20,6 @@
 .starting-block {
   background-color: blue;
 }
-
-.frog {
-  background-color: green;
-}
-
 .l1,
 .l2,
 .l3 {
@@ -43,4 +38,8 @@
 .c2,
 .c3 {
   background-color: lightgrey;
+}
+
+.frog {
+  background-color: green;
 }

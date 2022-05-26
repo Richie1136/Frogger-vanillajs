@@ -12,6 +12,7 @@ console.log(logLeft)
 
 let currentIndex = 76
 const width = 9
+let timerId;
 
 const moveFrog = (e) => {
   squares[currentIndex].classList.remove('frog')
@@ -146,11 +147,19 @@ const autoMoveCars = () => {
     moveCarsRight(car)
   });
 }
+const lose = () => {
+  if (squares[currentIndex].classList.contains('c1')) {
+    console.log("Gane Over")
+    result.innerHTML = "You Lose"
+    clearInterval(timerId)
+  }
+}
 
-setInterval(() => {
+lose()
+
+timerId = setInterval(() => {
   autoMoveLogs()
   autoMoveCars()
 }, 1000);
-
 
 
