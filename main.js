@@ -175,6 +175,17 @@ const win = () => {
   }
 }
 
+startorpause.addEventListener('click', () => {
+  if (timerId) {
+    clearInterval(timerId)
+  } else {
+    timerId = setInterval(() => {
+      autoMoveLogs()
+      autoMoveCars()
+    }, 1000);
+  }
+})
+
 timerId = setInterval(() => {
   autoMoveLogs()
   autoMoveCars()
