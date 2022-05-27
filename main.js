@@ -14,6 +14,7 @@ let currentIndex = 76
 const width = 9
 let timerId;
 let time = 20;
+let outcomeTimer;
 
 const moveFrog = (e) => {
   squares[currentIndex].classList.remove('frog')
@@ -43,8 +44,6 @@ const moveFrog = (e) => {
   squares[currentIndex].classList.add('frog')
 
 }
-
-document.addEventListener('keyup', moveFrog)
 
 const moveLogsLeft = (logLeft) => {
   switch (true) {
@@ -140,8 +139,6 @@ const autoMoveLogs = () => {
   logRight.forEach(log => {
     moveLogsRight(log)
   });
-  lose()
-  win()
 }
 
 const autoMoveCars = () => {
@@ -151,8 +148,6 @@ const autoMoveCars = () => {
   carsRight.forEach(car => {
     moveCarsRight(car)
   });
-  lose()
-  win()
 }
 const lose = () => {
   if (
@@ -174,15 +169,26 @@ const win = () => {
     clearInterval(timerId)
   }
 }
+const checkforloseorwin = () => {
+  lose()
+  win()
+}
+
 
 startorpause.addEventListener('click', () => {
   if (timerId) {
     clearInterval(timerId)
+    timerId = null
+    document.removeEventListener('keyup', moveFrog)
   } else {
     timerId = setInterval(() => {
       autoMoveLogs()
       autoMoveCars()
     }, 1000);
+    outcomeTimer = setInterval(() => {
+      checkforloseorwin
+    }, 50);
+    document.addEventListener('keyup', moveFrog)
   }
 })
 
