@@ -155,11 +155,11 @@ const lose = () => {
     squares[currentIndex].classList.contains('l4') ||
     squares[currentIndex].classList.contains('l5') ||
     time <= 0) {
-    result.innerHTML = "You Lose"
+    result.textContent = "You Lose"
     clearInterval(timerId)
+    clearInterval(outcomeTimer)
     squares[currentIndex].classList.remove('frog')
     document.removeEventListener('keyup', moveFrog)
-
   }
 }
 
@@ -167,6 +167,7 @@ const win = () => {
   if (squares[currentIndex].classList.contains('ending-block')) {
     result.innerHTML = "You win"
     clearInterval(timerId)
+    clearInterval(outcomeTimer)
   }
 }
 const checkforloseorwin = () => {
@@ -178,21 +179,16 @@ const checkforloseorwin = () => {
 startorpause.addEventListener('click', () => {
   if (timerId) {
     clearInterval(timerId)
+    clearInterval(outcomeTimer)
     timerId = null
+    outcomeTimer = null
     document.removeEventListener('keyup', moveFrog)
   } else {
     timerId = setInterval(() => {
       autoMoveLogs()
       autoMoveCars()
     }, 1000);
-    outcomeTimer = setInterval(() => {
-      checkforloseorwin
-    }, 50);
+    outcomeTimer = setInterval(checkforloseorwin, 50)
     document.addEventListener('keyup', moveFrog)
   }
 })
-
-timerId = setInterval(() => {
-  autoMoveLogs()
-  autoMoveCars()
-}, 1000);
