@@ -8,8 +8,6 @@ const carsLeft = document.querySelectorAll('.cars-left')
 const carsRight = document.querySelectorAll('.cars-right')
 
 
-console.log(logLeft)
-
 let currentIndex = 76
 const width = 9
 let timerId;
@@ -18,7 +16,6 @@ let outcomeTimer;
 
 const moveFrog = (e) => {
   squares[currentIndex].classList.remove('frog')
-  console.log("Moved")
 
   switch (e.key) {
     case 'ArrowLeft':
